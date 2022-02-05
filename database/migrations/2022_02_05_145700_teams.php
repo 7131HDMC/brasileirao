@@ -17,6 +17,10 @@ class Teams extends Migration
             $table->increments('id');
             $table->string('team_name');
             $table->string('team_flag');
+            
+            $table->integer('division_id')->unsigned();
+            $table->foreign('division_id')->references('id')->on('brasileirao');
+            
             $table->timestamps();
         });
     }

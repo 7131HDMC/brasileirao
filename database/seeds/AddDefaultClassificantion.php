@@ -19,7 +19,7 @@ class AddDefaultClassificantion extends Seeder
             Classification::create([
                 "PTS" => 0,
                 "J"   => 0,
-                "V" => 0,
+                "V"   => 0,
                 "E" => 0,
                 "D" => 0,
                 "GP" => 0,

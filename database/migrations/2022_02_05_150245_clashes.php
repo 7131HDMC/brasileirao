@@ -24,10 +24,6 @@ class Clashes extends Migration
             $table->foreign('away_team')->references('id')->on('teams');
             $table->integer('away_gols');
 
-
-            $table->integer('division_id')->unsigned();
-            $table->foreign('division_id')->references('id')->on('brasileirao');
-            
             $table->timestamps();
         });
     }
