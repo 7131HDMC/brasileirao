@@ -15,6 +15,8 @@ class SeedBrasileiraoSerieA2021 extends Migration
     {
         Artisan::call('db:seed', ['--class' => 'AddDivision', '--force' => null]);
         Artisan::call('db:seed', ['--class' => 'AddTeamsSerieA2021', '--force' => null]);
+        Artisan::call('db:seed', ['--class' => 'AddDefaultClassificantion', '--force' => null]);
+
     }
 
     /**

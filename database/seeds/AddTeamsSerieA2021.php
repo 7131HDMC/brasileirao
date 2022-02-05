@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Teams;
+
 
 class AddTeamsSerieA2021 extends Seeder
 {
@@ -95,6 +97,12 @@ class AddTeamsSerieA2021 extends Seeder
                 ]
             ];
 
-        DB::table('teams')->insert($teams);
+
+        foreach($teams as $team)
+        {
+            Teams::create($team);
+        }
+        
+    // DB::table('teams')->insert($teams);
     }
 }

@@ -21,17 +21,21 @@ Com o banco configurado, execute o comando:
 
 As migrations criadas seram executadas:
 ####
-    +------+------------------------------------------------+-------+
-    | Ran? | Migration                                      | Batch |
-    +------+------------------------------------------------+-------+
-    | Yes  | 2022_02_05_144610_brasileirao                  | 2     |
-    | Yes  | 2022_02_05_145700_teams                        | 2     |
-    | Yes  | 2022_02_05_150245_clashes                      | 2     |
-    | Yes  | 2022_02_05_151012_seed_brasileirao_serie_a2021 | 3     |
-    +------+------------------------------------------------+-------+
++------+------------------------------------------------+-------+
+| Ran? | Migration                                      | Batch |
++------+------------------------------------------------+-------+
+| Yes  | 2022_02_05_144610_brasileirao                  | 2     |
+| Yes  | 2022_02_05_145700_teams                        | 2     |
+| Yes  | 2022_02_05_150245_clashes                      | 2     |
+| Yes  | 2022_02_05_151012_seed_brasileirao_serie_a2021 | 3     |
+| Yes  | 2022_02_05_174036_classification               | 4     |
++------+------------------------------------------------+-------+
+
 
 As trÊs primeiras são para criação das tabelas e suas relações, a terceira é para popular as duas primeiras, brasileirao e teams, executando duas seeders criadas, `AddDivision` e `AddTeamsSerieA2021`.
 
+
+#### Tests
 
 
 #### Curiosidades

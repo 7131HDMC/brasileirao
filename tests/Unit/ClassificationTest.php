@@ -3,10 +3,10 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use App\Models\Teams;
+use App\Models\Classification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class TeamsTest extends TestCase
+class ClassificationTest extends TestCase
 {
     /**
      * A basic test example.
@@ -15,6 +15,7 @@ class TeamsTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->assertTrue(!empty(Teams::getTeams()));
+        $this->assertTrue(!empty(Classification::getClassification()));
+        // dd(Classification::getClassification());
     }
 }

@@ -13,6 +13,5 @@ class Clashes extends Model
 	 */
 	protected $table = 'clashes';
 
-    
 	 
 }

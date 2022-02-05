@@ -15,19 +15,18 @@ class Teams extends Model
 
 	protected $appends = ['team_flag'];
 
-
     public function getTeamFlagAttribute(){
 		return $this->team_flag;
 	}
 
 
 	/**
-     * 
+     * Get all teams
      * @author Hari Dasa
      */
     public static function getTeams()
     {
-        return self::select('id')->get();
+        return self::select('id', 'team_name', 'team_flag')->get();
     }
 
 	 
