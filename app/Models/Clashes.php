@@ -20,7 +20,7 @@ class Clashes extends Model
 	 * @param clash
      * @return object
      */
-    public static function setClash($clash)
+    public static function setClashe($clash)
     {
 		$clashes = new Clashes();
 

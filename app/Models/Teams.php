@@ -12,14 +12,7 @@ class Teams extends Model
 	 * @var string
 	 */
 	protected $table = 'teams';
-
-	protected $appends = ['team_flag'];
-
-    public function getTeamFlagAttribute(){
-		return $this->team_flag;
-	}
-
-
+	
 	/**
      * Get all teams
      * @author Hari Dasa

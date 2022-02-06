@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Classification;
-
+use App\Models\Teams;
 use App\Models\Clashes;
 
 class BrasileiraoController extends Controller
@@ -24,7 +24,7 @@ class BrasileiraoController extends Controller
     public function setClashe(Request $request)
     {
         $params = $request->all();
-        dd($params);
+        Clashes::setClashe($request);
     }
 
     /**
@@ -33,7 +33,16 @@ class BrasileiraoController extends Controller
      */
     public function getClassification(Request $request)
     {
-        $params = $request->all();
         return Classification::getClassification();
+    }
+
+
+    /**
+     * 
+     * @author Hari Dasa
+     */
+    public function getTeams(Request $request)
+    {
+        return Teams::getTeams();
     }
 }

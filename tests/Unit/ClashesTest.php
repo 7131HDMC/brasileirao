@@ -29,7 +29,7 @@ class ClashesTest extends TestCase
             "away_gols" => 3,
         ];
 
-        $class = Clashes::setClash((object)$clash);
+        $class = Clashes::setClashe((object)$clash);
 
         $this->assertTrue(true);
     }
@@ -55,7 +55,7 @@ class ClashesTest extends TestCase
             "away_gols" => 3,
         ];
 
-        $class = Clashes::setClash((object)$clash);
+        $class = Clashes::setClashe((object)$clash);
 
         $this->assertTrue(true);
     }

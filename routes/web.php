@@ -17,7 +17,13 @@ Route::group(['prefix' => '/'], function (){
      * View Brasileirão division championships
      */
     Route::get('/', array('as' => 'BrasileiraoFaker', 'uses' => 'BrasileiraoController@index'));
-       
+    
+    /**
+     * View Brasileirão division championships
+     */
+    Route::post('/teams', array('as' => 'BrasileiraoSetClashe', 'uses' => 'BrasileiraoController@getTeams'));
+
+    
     /**
      * View Brasileirão division championships
      */

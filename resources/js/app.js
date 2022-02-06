@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import VueSweetalert2 from "vue-sweetalert2";
+
 import brasileirao from "./components/brasileirao.vue";
 
 /**
@@ -22,6 +24,7 @@ import brasileirao from "./components/brasileirao.vue";
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.use(VueSweetalert2);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

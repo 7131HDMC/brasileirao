@@ -1,31 +1,70 @@
 <script>
 
 import axios from "axios";
+import clashe from "./clashe.vue";
 
 export default {
     data() {
         return {
             classification: {},
+            teams:{},
         };
+    },
+    components:{
+        clashe
     },
     methods: {
         async getClassification() {
             await axios.post('/classification')
                         .then(response => {
                             console.log(response);
-                            this.classification = response
+                            this.classification = response;
+                            this.teams = this.classification.data.map((team) => { return  {name:team.team_name,id: team.team_id }} );
                         }); 
         },
+        getTeams(){
+            return this.classification.data.map((team) => { return  {name:team.team_name,id: team.team_id }} );
+        },
+        setColor(index){
+            let color = "btn-outline-danger";
+            if(index < 4)
+                color = "btn-outline-success";
+            else if(index < 6)
+                color="btn-outline-primary";
+            else if(index < 16)
+                color="btn-outline-info";
+                
+            return color;
+        }
+            
     },
-    created() {
-        this.getClassification();
+    async created() {
+        await this.getClassification();
     },
+
 }
 </script>
 <template >
     <div>
-        <div class="tab-content">
 
+        <div class="tab-content" style="font-weight: 800;">
+            <div>
+                <label
+                    class="btn btn-sm btn-outline-success"
+                    align="center"
+                    style="cursor: pointer; float:center;"
+                >
+                    <span
+                    data-toggle="modal"
+                    tabindex="-1"
+                    data-target="#modalAddClashe"
+                    data-whatever="@mdo"
+                    @click="$refs.addClashe.showModal()"
+                    ><i class="fa fa-plus"></i>
+                    Inserir Confronto
+                    </span>
+                </label>
+            </div>
             
             <div class="col-lg-12">
                 <div class="card card-outline-info">
@@ -45,7 +84,11 @@ export default {
                         <tbody>
                             <tr v-for="(classification, index) in classification.data" v-bind:key="classification.team_id" >
                                 <td>
-                                    <span class=" ">{{index+1}}º</span>
+                                    <span :class="
+                                        setColor(index)
+                                    " >
+                                        {{index+1}}º
+                                    </span>
                                     <img :src="classification.team_flag" height="35" width="35" alt="">
                                     <span> {{ classification.team_name }}</span>
                                 </td>
@@ -67,6 +110,12 @@ export default {
                 <!-- <pagination :data="invoice" @pagination-change-page="fetch"></pagination> -->
             </div>
         </div>
+
+        <clashe
+            ref="addClashe"
+            :teams="this.getTeams()"
+        >
+        </clashe>
     </div>
 </template>
 

@@ -18,7 +18,6 @@
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
                 height: 100vh;
                 margin: 0;
             }
@@ -64,9 +63,17 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
         </style>
     </head>
-    <body>
+    <body >
     <header class="topbar">
 			<nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
 
