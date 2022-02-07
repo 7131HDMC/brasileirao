@@ -26,7 +26,11 @@ class Classification extends Model
     public static function getClassification()
     {
         $query = self::join('teams','classification.team_id', 'teams.id')
-                    ->orderBy('classification.PTS', 'desc');
+                    ->orderBy('classification.PTS', 'desc')
+                    ->orderBy('classification.V', 'desc')
+                    ->orderBy('classification.SG', 'desc')
+                    ->orderBy('classification.GP', 'desc');
+                    
         
         return $query->select('teams.*', 'classification.*')->get();
     }
@@ -47,7 +51,7 @@ class Classification extends Model
             $win->V  += 1;
             $win->GP += $clash->gp;
             $win->GC += $clash->gc;
-            // $loss->SG = ;
+            $win->SG = $win->GP - $win->GC;
 
             $win->save();
 
@@ -69,7 +73,7 @@ class Classification extends Model
         $loss->D  += 1;
         $loss->GP += $clash->gp;
         $loss->GC += $clash->gc;
-        // $loss->SG = ;
+        $loss->SG = $loss->GP - $loss->GC;
 
         $loss->save();
 
@@ -91,7 +95,7 @@ class Classification extends Model
         $home->J += 1;
         $home->GP += $clash->home_gols;
         $home->GC += $clash->away_gols;
-        // $classification->SG +=  ;
+        $home->SG = $home->GP - $home->GC;
 
         $home->save();
 
@@ -104,7 +108,7 @@ class Classification extends Model
         $away->J += 1;
         $away->GP += $clash->away_gols;
         $away->GC += $clash->home_gols;
-        // $classification->SG +=  ;
+        $away->SG = $away->GP - $away->GC;
 
         $away->save();
 
