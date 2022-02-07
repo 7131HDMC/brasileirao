@@ -42,7 +42,8 @@ class ClassificationTest extends TestCase
             "home_gols" => 1,
         ];
         $class = Classification::tie((object)$clash);
-        $this->assertTrue(true);
+        $this->assertTrue(!empty(Classification::getClassification()));
+
     }
 
     /**
@@ -64,7 +65,8 @@ class ClassificationTest extends TestCase
 
         $class = Classification::loss((object)$clash);
 
-        $this->assertTrue(true);
+        $this->assertTrue(!empty(Classification::getClassification()));
+
     }
 
     /**
@@ -86,7 +88,8 @@ class ClassificationTest extends TestCase
 
         $class = Classification::victory((object)$clash);
 
-        $this->assertTrue(true);
+        $this->assertTrue(!empty(Classification::getClassification()));
+
     }
 
 

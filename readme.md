@@ -1,8 +1,16 @@
 ## Hi
 
-## Instruções
+## Instruções - Sitemas Unix
 
-Execute o comando em sistema Unix por linha de comando:
+Necessaŕio possuir o `Docker` instalado ou `php 7.1` `mysql 5.7`
+
+Caso esteja usando a docker, para todo os comandos  de prefixo `php artisan` utilize o parametro `exec app` para o comando ser executado dentro do container. Ex:
+
+`sudo docker-compose exec app php artisan cache:clear`
+
+Clone o projeto e acesse via terminal.
+
+Execute o comando linha de comando:
 
 `cp .env.example .env`
 
@@ -21,24 +29,30 @@ Com o banco configurado, execute o comando:
 
 As migrations criadas seram executadas:
 ####
-+------+------------------------------------------------+-------+
-| Ran? | Migration                                      | Batch |
-+------+------------------------------------------------+-------+
-| Yes  | 2022_02_05_144610_brasileirao                  | 2     |
-| Yes  | 2022_02_05_145700_teams                        | 2     |
-| Yes  | 2022_02_05_150245_clashes                      | 2     |
-| Yes  | 2022_02_05_151012_seed_brasileirao_serie_a2021 | 3     |
-| Yes  | 2022_02_05_174036_classification               | 4     |
-+------+------------------------------------------------+-------+
+    +------+------------------------------------------------+-------+
+    | Ran? | Migration                                      | Batch |
+    +------+------------------------------------------------+-------+
+    | Yes  | 2022_02_05_144610_brasileirao                  | 2     |
+    | Yes  | 2022_02_05_145700_teams                        | 2     |
+    | Yes  | 2022_02_05_150245_clashes                      | 2     |
+    | Yes  | 2022_02_05_151012_seed_brasileirao_serie_a2021 | 3     |
+    | Yes  | 2022_02_05_174036_classification               | 4     |
+    +------+------------------------------------------------+-------+
 
 
 As trÊs primeiras são para criação das tabelas e suas relações, a terceira é para popular as duas primeiras, brasileirao e teams, executando duas seeders criadas, `AddDivision` e `AddTeamsSerieA2021`.
 
 
-#### Tests
+### Tests
 
+Foi criado testes unitários para verificação de funcionalidade das Models
 
-#### Curiosidades
+####
+    ClashesTest.php
+    ClassificationTest.php
+    TeamsTest.php
+
+### Curiosidades
 
 Para capturar os dados a serem populados na seeder `AddTeamsSerieA2021` definir o ano em que o galão da massa :] ganhou o brasileirão e pequisei um site com uma lista dos nomes e escudos.
 

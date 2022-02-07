@@ -63,4 +63,13 @@ class Clashes extends Model
 		}
 		
     }
+
+	/**
+     * 
+     * @author Hari Dasa
+     */
+    public static function getClashes()
+    {
+        return self::select('id')->get();
+    }
 }

@@ -31,7 +31,7 @@ class ClashesTest extends TestCase
 
         $class = Clashes::setClashe((object)$clash);
 
-        $this->assertTrue(true);
+        $this->assertTrue(!empty(Clashes::getClashes()));
     }
 
     /**
@@ -57,7 +57,7 @@ class ClashesTest extends TestCase
 
         $class = Clashes::setClashe((object)$clash);
 
-        $this->assertTrue(true);
+        $this->assertTrue(!empty(Clashes::getClashes()));
     }
 
 }
